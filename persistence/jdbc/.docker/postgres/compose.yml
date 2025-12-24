@@ -1,0 +1,13 @@
+services:
+  postgres:
+    image: postgres:18
+    container_name: jdbc-postgres
+    environment:
+      - POSTGRES_USER=jdbc
+      - POSTGRES_PASSWORD=jdbc
+      - POSTGRES_DB=jdbc
+      - TZ=America/Sao_Paulo
+    volumes:
+      - ./setup:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
